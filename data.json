@@ -1,0 +1,9 @@
+{
+  "race": "Trentham R1 - 1400m",
+  "horses": [
+    { "number": 6, "name": "Pacific Princess", "rating": 54, "finish": 1, "weight": 56.5, "ai_score": 9.3 },
+    { "number": 3, "name": "Orson Stone", "rating": 52, "finish": 2, "weight": 58.5, "ai_score": 8.8 },
+    { "number": 13, "name": "Hard Rock Cafe", "rating": 54, "finish": 3, "weight": 56, "ai_score": 8.4 },
+    { "number": 8, "name": "Legacy", "rating": 50, "finish": 4, "weight": 56.5, "ai_score": 8.1 }
+  ]
+}
