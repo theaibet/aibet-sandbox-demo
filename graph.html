@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI-Bet v3.6 Performance Graph</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="font-family:Arial;background:#0a0a0a;color:#fff;padding:40px;">
+<h2>AI-Bet v3.6 Cumulative ROI Tracker</h2>
+<canvas id="roiChart" width="400" height="200"></canvas>
+<script>
+const ctx = document.getElementById('roiChart');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Geraldton','Seymour','Mountaineer','Morphettville','Canberra','Kilmore R1','Kilmore R5','Kilmore R6','Kilmore R7','Mt Isa'],
+    datasets: [{
+      label: 'ROI (%)',
+      data: [75, 288, 1980, 1690, 573, -100, -100, -100, -100, -100],
+      borderColor: '#00ffae',
+      borderWidth: 3,
+      fill: false,
+      tension: 0.3
+    }]
+  },
+  options: {
+    scales: {
+      y: { beginAtZero: false, ticks: { color: '#fff' } },
+      x: { ticks: { color: '#fff' } }
+    },
+    plugins: { legend: { labels: { color: '#fff' } } }
+  }
+});
+</script>
+</body>
+</html>
