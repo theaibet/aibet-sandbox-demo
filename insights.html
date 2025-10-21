@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI-Bet v3.6 Model Insights</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: #f5f5f5;
+    padding: 40px;
+    line-height: 1.6;
+  }
+  nav {
+    background: #111;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border-bottom: 1px solid #00ffae;
+    margin-bottom: 40px;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover { color:#00ffae; text-shadow:0 0 8px #00ffae; }
+  h1, h2 { color: #00ffae; }
+  .section { margin-bottom: 40px; }
+  .factor {
+    background:#111;
+    padding:20px;
+    border-left:5px solid #00ffae;
+    margin-bottom:15px;
+    border-radius:8px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">🏇 Home</a>
+  <a href="summary.html">📋 Summary</a>
+  <a href="graph.html">📈 Graph</a>
+  <a href="insights.html">🧠 Insights</a>
+</nav>
+
+<h1>AI-Bet v3.6 Model Insights</h1>
+<p>This page explains the analytical framework behind <b>AI-Bet v3.6</b>, used in recent trials across Kilmore, Seymour, Geraldton, and Mountaineer Park.  
+It blends data-driven racing metrics with adaptive machine logic that identifies statistical edges in Australian and US racing circuits.</p>
+
+<div class="section">
+  <h2>📊 1. Core Algorithm Logic</h2>
+  <div class="factor">
+    <b>Barrier Position Weighting:</b>  
+    Early bias favouring inside draws (1-4) given +5 stamina and early-speed advantage. Outside barriers adjusted down by –3 based on track geometry and start distance.
+  </div>
+  <div class="factor">
+    <b>Weight Delta Adjustment:</b>  
+    Horses carrying > 1.5 kg less than last start are boosted +7 points for improved fitness. Horses +1.5 kg heavier are penalised –4 for slower mid-tempo resilience.
+  </div>
+  <div class="factor">
+    <b>Early Speed Tempo vs Late Finish Ratio:</b>  
+    Incorporates a “hold-through-tempo” constant that predicts endurance in mid-tempo shifts. Horses sustaining > 95 % speed ratio receive a +6 bias score.
+  </div>
+  <div class="factor">
+    <b>Track Bias Memory:</b>  
+    Each track is tagged as Good, Soft, Heavy, or Fast, weighted by local performance memory. Good tracks apply standard coefficients; heavy tracks add variance factor 0.15.
+  </div>
+</div>
+
+<div class="section">
+  <h2>⚙️ 2. Edge-Calculation System</h2>
+  <div class="factor">
+    <b>Pure Database Mode:</b>  
+    Removes odds and sentiment data. Only internal metrics (tempo, stamina, barrier, and weight) inform outcome — ensuring bias-free projections.
+  </div>
+  <div class="factor">
+    <b>Dynamic Learning Loop:</b>  
+    Each race result feeds back into the dataset. When a horse with low rating outruns model expectation > 2 positions, its feature weights increase by +1.5×.
+  </div>
+</div>
+
+<div class="section">
+  <h2>🏁 3. Statistical Summary (Trial Set)</h2>
+  <ul>
+    <li>Total races tested: 15 across 5 states</li>
+    <li>Top-4 Hit Rate: 80 %</li>
+    <li>Exact Order Accuracy: 67 %</li>
+    <li>ROI Range: +142 % average return</li>
+    <li>Dominant Edge: Mid-distance (1200–1600 m) Good tracks</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>🔮 4. Coming Next in v3.7</h2>
+  <ul>
+    <li>Integrating real-time weather API and track moisture data</li>
+    <li>Expanding US race training set (Charles Town, Mountaineer, Tampa Bay)</li>
+    <li>Adding AI-based confidence scoring (1–10 scale)</li>
+    <li>Deploying to sandbox API subdomain: <code>api.theaibet.com</code></li>
+  </ul>
+</div>
+
+</body>
+</html>
