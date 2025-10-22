@@ -1,0 +1,20 @@
+  "meeting": "Geelong",
+  "race": "R1",
+  "date": "2025-10-13",
+  "distance_m": 2400,
+  "track_rating": "Soft 6",
+  "weather": "Cold and rainy",
+  "runners": [
+    {"no": 1, "name": "", "rating": 0, "weight_kg": 0, "odds_dec": 0,
+     "wet": {"soft_st":0, "soft_w":0, "soft_p":0, "heavy_st":0, "heavy_w":0, "heavy_p":0},
+     "distance": {"st":0, "w":0, "p":0},
+     "last3": [], "trainer": "", "jockey": ""},
+
+    {"no": 2, "name": "", "rating": 0, "weight_kg": 0, "odds_dec": 0,
+     "wet": {"soft_st":0, "soft_w":0, "soft_p":0, "heavy_st":0, "heavy_w":0, "heavy_p":0},
+     "distance": {"st":0, "w":0, "p":0},
+     "last3": [], "trainer": "", "jockey": ""}
+
+    /* …repeat up to no: 13 … */
+  ]
+}
