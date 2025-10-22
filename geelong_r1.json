@@ -1,20 +1,140 @@
+{
   "meeting": "Geelong",
-  "race": "R1",
-  "date": "2025-10-13",
-  "distance_m": 2400,
-  "track_rating": "Soft 6",
-  "weather": "Cold and rainy",
+  "race": "R1 (BM70) — 2400 m",
+  "track": "Soft 6",
+  "rail": "",
+  "datetime_local": "Today",
+  "notes": "Odds are Ladbrokes decimal. Wet indices will be computed from Soft/Heavy records. Distance suitability from 2400m records.",
   "runners": [
-    {"no": 1, "name": "", "rating": 0, "weight_kg": 0, "odds_dec": 0,
-     "wet": {"soft_st":0, "soft_w":0, "soft_p":0, "heavy_st":0, "heavy_w":0, "heavy_p":0},
-     "distance": {"st":0, "w":0, "p":0},
-     "last3": [], "trainer": "", "jockey": ""},
-
-    {"no": 2, "name": "", "rating": 0, "weight_kg": 0, "odds_dec": 0,
-     "wet": {"soft_st":0, "soft_w":0, "soft_p":0, "heavy_st":0, "heavy_w":0, "heavy_p":0},
-     "distance": {"st":0, "w":0, "p":0},
-     "last3": [], "trainer": "", "jockey": ""}
-
-    /* …repeat up to no: 13 … */
+    {
+      "number": 1,
+      "name": "Farag",
+      "rating": 78,
+      "odds_win": 26.0,
+      "odds_place": 6.0,
+      "soft": {"starts": 11, "wins": 4, "places": 1},
+      "heavy": {"starts": 11, "wins": 1, "places": 3},
+      "distance": {"starts": 5, "wins": 2, "places": 0}
+    },
+    {
+      "number": 3,
+      "name": "Cable Dancer",
+      "rating": 71,
+      "odds_win": 9.0,
+      "odds_place": 3.0,
+      "soft": {"starts": 5, "wins": 0, "places": 1},
+      "heavy": {"starts": 0, "wins": 0, "places": 0},
+      "distance": {"starts": 3, "wins": 1, "places": 0}
+    },
+    {
+      "number": 5,
+      "name": "Natural Ruler",
+      "rating": 71,
+      "odds_win": 5.0,
+      "odds_place": 2.05,
+      "soft": {"starts": 2, "wins": 0, "places": 1},
+      "heavy": {"starts": 0, "wins": 0, "places": 0},
+      "distance": {"starts": 4, "wins": 2, "places": 1}
+    },
+    {
+      "number": 6,
+      "name": "Karburan",
+      "rating": 70,
+      "odds_win": 4.8,
+      "odds_place": 2.0,
+      "soft": {"starts": 7, "wins": 0, "places": 1},
+      "heavy": {"starts": 0, "wins": 0, "places": 0},
+      "distance": {"starts": 4, "wins": 1, "places": 1}
+    },
+    {
+      "number": 7,
+      "name": "Captain Electric",
+      "rating": 69,
+      "odds_win": 10.0,
+      "odds_place": 3.2,
+      "soft": {"starts": 8, "wins": 1, "places": 2},
+      "heavy": {"starts": 2, "wins": 2, "places": 0},
+      "distance": {"starts": 3, "wins": 1, "places": 0}
+    },
+    {
+      "number": 8,
+      "name": "Haaland",
+      "rating": 69,
+      "odds_win": 7.5,
+      "odds_place": 2.6,
+      "soft": {"starts": 3, "wins": 0, "places": 0},
+      "heavy": {"starts": 0, "wins": 0, "places": 0},
+      "distance": {"starts": 3, "wins": 1, "places": 1}
+    },
+    {
+      "number": 10,
+      "name": "Suffolk Star",
+      "rating": 65,
+      "odds_win": 10.0,
+      "odds_place": 3.2,
+      "soft": {"starts": 4, "wins": 0, "places": 0},
+      "heavy": {"starts": 6, "wins": 0, "places": 1},
+      "distance": {"starts": 5, "wins": 1, "places": 0}
+    },
+    {
+      "number": 11,
+      "name": "Perfetto",
+      "rating": 68,
+      "odds_win": 15.0,
+      "odds_place": 4.2,
+      "soft": {"starts": 7, "wins": 0, "places": 2},
+      "heavy": {"starts": 1, "wins": 1, "places": 0},
+      "distance": {"starts": 2, "wins": 1, "places": 0}
+    },
+    {
+      "number": 12,
+      "name": "Alpine Rocket",
+      "rating": 60,
+      "odds_win": 27.0,
+      "odds_place": 6.5,
+      "soft": {"starts": 6, "wins": 0, "places": 1},
+      "heavy": {"starts": 0, "wins": 0, "places": 0},
+      "distance": {"starts": 8, "wins": 1, "places": 2}
+    },
+    {
+      "number": 13,
+      "name": "Northern Barrage",
+      "rating": 59,
+      "odds_win": 26.0,
+      "odds_place": 6.0,
+      "soft": {"starts": 6, "wins": 1, "places": 0},
+      "heavy": {"starts": 4, "wins": 0, "places": 2},
+      "distance": {"starts": 5, "wins": 0, "places": 1}
+    },
+    {
+      "number": 14,
+      "name": "Foire De Trone",
+      "rating": 61,
+      "odds_win": 7.0,
+      "odds_place": 2.5,
+      "soft": {"starts": 3, "wins": 1, "places": 1},
+      "heavy": {"starts": 2, "wins": 0, "places": 0},
+      "distance": {"starts": 2, "wins": 0, "places": 0}
+    },
+    {
+      "number": 15,
+      "name": "Highland Glory",
+      "rating": 58,
+      "odds_win": 20.0,
+      "odds_place": 5.0,
+      "soft": {"starts": 6, "wins": 1, "places": 0},
+      "heavy": {"starts": 7, "wins": 1, "places": 1},
+      "distance": {"starts": 11, "wins": 0, "places": 3}
+    },
+    {
+      "number": 16,
+      "name": "Amawasha",
+      "rating": 56,
+      "odds_win": 35.0,
+      "odds_place": 7.5,
+      "soft": {"starts": 2, "wins": 0, "places": 0},
+      "heavy": {"starts": 1, "wins": 0, "places": 0},
+      "distance": {"starts": 4, "wins": 0, "places": 0}
+    }
   ]
 }
