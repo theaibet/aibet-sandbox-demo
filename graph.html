@@ -1,61 +1,137 @@
-  <canvas id="roiChart"></canvas>
+<nav style="background:#111; padding:15px; display:flex; justify-content:center; gap:30px; border-bottom:1px solid #00ffae;">
+  <a href="index.html" style="color:#fff; text-decoration:none; font-weight:bold;">🏇 Home</a>
+  <a href="summary.html" style="color:#fff; text-decoration:none; font-weight:bold;">📋 Summary</a>
+  <a href="graph.html" style="color:#fff; text-decoration:none; font-weight:bold;">📈 Graph</a>
+  <a href="insights.html" style="color:#fff; text-decoration:none; font-weight:bold;">🧠 Insights</a>
+</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Bet v3.7 • ROI & Confidence Tracker</title>
+<style>
+:root {
+  --bg:#0c0d0f; --panel:#14161a; --accent:#00ffae; --muted:#8b8b8b;
+}
+body {
+  margin:0; background:var(--bg); color:#fff;
+  font-family:"Segoe UI", Roboto, Arial, sans-serif;
+}
+nav {
+  background:#111; padding:15px; display:flex; justify-content:center;
+  gap:30px; border-bottom:1px solid var(--accent);
+}
+nav a {
+  color:#fff; text-decoration:none; font-weight:600;
+}
+nav a:hover {
+  color:var(--accent);
+}
+.container {
+  max-width:1000px; margin:40px auto; padding:0 16px;
+}
+h1 {
+  color:var(--accent);
+  text-align:center;
+  margin-bottom:30px;
+}
+#chartContainer {
+  background:var(--panel);
+  border-radius:8px;
+  padding:20px;
+  min-height:400px;
+}
+canvas {
+  width:100%!important;
+  height:380px!important;
+}
+.footer {
+  text-align:center;
+  margin-top:20px;
+  color:var(--muted);
+  font-size:13px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="summary.html">Summary</a>
+  <a href="insights.html">Insights</a>
+  <a href="graph.html" style="color:var(--accent);">Graph</a>
+  <a href="simulation.html">Summation</a>
+</nav>
+
+<div class="container">
+  <h1>AI-Bet v3.7 • Cumulative ROI Tracker</h1>
+  <div id="chartContainer">
+    <canvas id="roiChart"></canvas>
+  </div>
 </div>
 
 <div class="footer">
   <p>AI-Bet ROI history auto-updates per version test (v3.7 Simulation)</p>
 </div>
 
-<script>
-const ctx = document.getElementById('roiChart');
+<!-- Load Chart.js safely -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Geraldton', 'Seymour', 'Mountaineer', 'Morphettville', 'Canberra', 'Kilmore R1', 'Kilmore R5', 'Kilmore R6', 'Kilmore R7', 'Mt Isa', 'Caulfield R2'],
-    datasets: [{
-      label: 'ROI (%)',
-      data: [50, 220, 1950, 1450, 400, -100, -120, -130, -140, -135, 620],
-      borderColor: '#00ffae',
-      backgroundColor: 'rgba(0,255,174,0.1)',
-      pointBackgroundColor: '#00ffae',
-      pointRadius: 5,
-      pointHoverRadius: 7,
-      borderWidth: 3,
-      tension: 0.35,
-    }]
-  },
-  options: {
-    responsive: true,
-    scales: {
-      x: {
-        ticks: { color: '#ccc' },
-        grid: { color: '#222' },
-      },
-      y: {
-        ticks: { color: '#ccc' },
-        grid: { color: '#222' },
-      }
-    },
-    plugins: {
-      legend: {
-        labels: { color: '#00ffae', font: { weight: 'bold' } }
-      },
-      tooltip: {
-        backgroundColor: '#14161a',
+<script>
+// Delay render to ensure Chart.js loads first (mobile Safari fix)
+setTimeout(() => {
+  const ctx = document.getElementById('roiChart');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Geraldton', 'Seymour', 'Mountaineer', 'Morphettville', 'Canberra', 'Kilmore R1', 'Kilmore R5', 'Kilmore R6', 'Kilmore R7', 'Mt Isa', 'Caulfield R2'],
+      datasets: [{
+        label: 'ROI (%)',
+        data: [50, 220, 1950, 1450, 400, -100, -120, -130, -140, -135, 620],
         borderColor: '#00ffae',
-        borderWidth: 1,
-        titleColor: '#00ffae',
-        bodyColor: '#fff',
-        displayColors: false,
-        callbacks: {
-          label: function(context) {
-            return ' ROI: ' + context.parsed.y + '%';
+        backgroundColor: 'rgba(0,255,174,0.1)',
+        pointBackgroundColor: '#00ffae',
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        borderWidth: 3,
+        tension: 0.35,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          ticks: { color: '#ccc' },
+          grid: { color: '#222' },
+        },
+        y: {
+          ticks: { color: '#ccc' },
+          grid: { color: '#222' },
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: '#00ffae', font: { weight: 'bold' } }
+        },
+        tooltip: {
+          backgroundColor: '#14161a',
+          borderColor: '#00ffae',
+          borderWidth: 1,
+          titleColor: '#00ffae',
+          bodyColor: '#fff',
+          displayColors: false,
+          callbacks: {
+            label: function(context) {
+              return ' ROI: ' + context.parsed.y + '%';
+            }
           }
         }
       }
     }
-  }
-});
+  });
+}, 300);
 </script>
 
 </body>
