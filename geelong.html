@@ -133,3 +133,37 @@ async function runWetSim() {
 
 document.addEventListener('DOMContentLoaded', runWetSim);
 </script>
+<section id="validation" style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 20px;">
+  <h2>Validation — Geelong R1 (Soft 6, 2400m)</h2>
+  <p><strong>Date:</strong> Sat 25 Oct 2025</p>
+  <p><strong>Model:</strong> AI-Bet v3.7 – Wet-Track Weighted (Beta)</p>
+
+  <h3>Actual vs Predicted</h3>
+  <table style="width:100%; border-collapse: collapse;">
+    <tr><th>Actual Result</th><th>Predicted Order</th></tr>
+    <tr><td>#8 Haaland / #6 Karburan / #15 Highland Glory / #14 Foire De Trone</td>
+        <td>#5 Natural Ruler / #1 Farag / #6 Karburan / #7 Captain Electric</td></tr>
+  </table>
+
+  <h3>Model Analysis</h3>
+  <ul>
+    <li><strong>Top-4 Hit Rate:</strong> 25% (1 of 4) — Correctly placed #6 Karburan in the top bracket.</li>
+    <li><strong>Exact Order Accuracy:</strong> 0%</li>
+    <li><strong>Bias Observed:</strong> Wet-form carryover underweighted — stamina finishers (#8, #15) outperformed model expectation.</li>
+    <li><strong>Next Adjustments (v3.8):</strong>
+      <ul>
+        <li>Increase “soft-form carryover” weight by +8%</li>
+        <li>Reduce “dry-form bias” in 2400 m+ races by −10%</li>
+        <li>Add “late-stamina recovery” feature (last-400 m sectionals)</li>
+        <li>Boost older horses (6–8 yo) in wet conditions by +4%</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Performance Summary</h3>
+  <table style="width:100%; border-collapse: collapse;">
+    <tr><th>Version</th><th>Total Races</th><th>Top-4 Accuracy</th><th>Exact Order</th></tr>
+    <tr><td>v3.6</td><td>6</td><td>83%</td><td>50%</td></tr>
+    <tr><td><strong>v3.7 (WET Trial)</strong></td><td>1</td><td>25%</td><td>0%</td></tr>
+  </table>
+</section>
