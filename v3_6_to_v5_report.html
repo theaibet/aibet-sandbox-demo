@@ -1,4 +1,106 @@
-<a href="index.html">Home</a>
-<a href="summary.html">Summary</a>
-<a href="insights.html">Insights</a>
-<a href="v3_6_to_v5_0_report.html">Full Report</a>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AI-Bet Full Race Analysis Report (v3.6 to v5.0)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{
+    --bg:#0b0b0b; --gold:#E0B34E; --muted:#9a9a9a; --card:#121212; --line:#242424;
+  }
+  html,body{margin:0;background:var(--bg);color:#fff;font:16px/1.55 system-ui,Segoe UI,Arial;}
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 22px 80px;}
+  header{display:flex;align-items:center;gap:18px;margin-bottom:24px}
+  header img{height:52px;width:auto}
+  h1{margin:0;font-size:26px;color:var(--gold);font-weight:700;letter-spacing:.3px}
+  .sub{color:var(--muted);font-size:13px;margin:4px 0 18px}
+  .summary{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0 28px}
+  .summary h2{margin:0 0 10px;color:var(--gold);font-size:18px}
+  .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .kpi div{background:#0f0f0f;border:1px solid var(--line);border-radius:8px;padding:12px}
+  .kpi b{color:var(--gold);font-size:20px}
+  .races{display:flex;flex-direction:column;gap:14px}
+  .race{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .race h3{margin:0 0 8px;font-size:17px;color:#fff}
+  .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin-left:8px;color:var(--gold);font-size:12px}
+  .row{display:grid;grid-template-columns:150px 1fr;gap:10px;margin:2px 0}
+  .lbl{color:var(--muted)}
+  footer{margin-top:40px;color:var(--muted);font-size:12px;text-align:center}
+  @media (max-width:700px){
+    .kpi{grid-template-columns:1fr}
+    .row{grid-template-columns:120px 1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <!-- Put your logo at /assets/logo.png or remove this img tag -->
+      <img src="assets/logo.png" alt="TheAiBet logo" />
+      <div>
+        <h1>AI-Bet Full Race Analysis Report (v3.6 to v5.0)</h1>
+        <div class="sub">Prepared by Zachary Reid — Founder, AI-Bet Pty Ltd • Edition v0.2 (30 races)</div>
+      </div>
+    </header>
+
+    <section class="summary">
+      <h2>Summary</h2>
+      <div class="kpi">
+        <div><div>Races</div><b>30</b></div>
+        <div><div>Verified Wins</div><b>12</b></div>
+        <div><div>Wins-only Gross Return</div><b>$14,437.69</b></div>
+        <div><div>Wins-only Stake</div><b>$95.00</b></div>
+        <div><div>Wins-only ROI</div><b>+15,097%</b></div>
+        <div><div>Models</div><b>v3.6 → v5.0</b></div>
+      </div>
+      <p class="sub" style="margin-top:12px">
+        Notes: totals above intentionally exclude losing stakes (per your request to avoid a final overall ROI).
+        The Trentham R1 exact First Four is a large outlier ($5 ➝ $13,336.65).
+      </p>
+    </section>
+
+    <section id="races" class="races"></section>
+
+    <footer>
+      © 2025 AI-Bet Pty Ltd — Confidential Investor Ledger (Static Demo)
+    </footer>
+  </div>
+
+<script>
+// --- Data (inlined for a single-file static page). You can also load the JSON file instead.
+const DATA = /* paste the JSON object from v3_6_to_v5_0_data.json here if you prefer inline */
+{
+  "races": []
+};
+// For convenience we'll fetch the separate JSON if present:
+fetch('v3_6_to_v5_0_data.json')
+  .then(r => r.ok ? r.json() : {races:[]})
+  .then(d => {
+    const races = d.races || [];
+    const host = document.getElementById('races');
+    races.forEach((r) => {
+      const card = document.createElement('article');
+      card.className = 'race';
+      const h = document.createElement('h3');
+      h.innerHTML = `<b>${r.no}.</b> ${r.race} <span class="badge">${r.model}</span>`;
+      const rows = [
+        ["Date", new Date(r.date).toLocaleDateString()],
+        ["Distance / Track", `${r.distance_m} m • ${r.track}`],
+        ["AI Prediction", r.prediction],
+        ["Result", r.result],
+        ["Outcome", r.outcome + (r.verifiedTicket ? ` — $${r.verifiedTicket.return.toFixed(2)} on $${r.verifiedTicket.stake.toFixed(2)} (ROI ${r.verifiedTicket.roi_pct.toFixed(1)}%)` : "")],
+        ["Notes", r.notes || "—"]
+      ];
+      card.appendChild(h);
+      rows.forEach(([k,v])=>{
+        const row = document.createElement('div'); row.className='row';
+        const a = document.createElement('div'); a.className='lbl'; a.textContent=k;
+        const b = document.createElement('div'); b.textContent=v;
+        row.appendChild(a); row.appendChild(b); card.appendChild(row);
+      });
+      host.appendChild(card);
+    });
+  });
+</script>
+</body>
+</html>
