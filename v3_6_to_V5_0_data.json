@@ -1,4 +1,377 @@
-<a href="index.html">Home</a>
-<a href="summary.html">Summary</a>
-<a href="insights.html">Insights</a>
-<a href="v3_6_to_v5_0_report.html">Full Report</a>
+{
+  "meta": {
+    "title": "AI-Bet Full Race Analysis Report (v3.6 to v5.0)",
+    "prepared_by": "Zachary Reid — Founder, AI-Bet Pty Ltd",
+    "edition": "v0.2 — static ledger (30 races)",
+    "theme": {"bg": "#0b0b0b", "gold": "#E0B34E", "muted": "#9a9a9a"}
+  },
+  "summary": {
+    "models_used": ["v3.6","v4.0","v4.2","v4.3","v4.4","v4.5","v4.6","v4.7","v4.8","v4.9","v5.0"],
+    "races_total": 30,
+    "wins_verified": 12,
+    "wins_only_gross_return": 14437.69,
+    "wins_only_stake": 95.0,
+    "wins_only_roi_pct": 15097.0,
+    "notes": [
+      "‘Wins-only’ ROI excludes losing stakes by design (you asked to avoid a final overall ROI).",
+      "Large outlier: Trentham R1 exact First Four ($5 stake ➝ $13,336.65)."
+    ]
+  },
+  "races": [
+    {
+      "no": 1,
+      "race": "Trentham (NZ) — R1",
+      "date": "2025-09-20",
+      "distance_m": 1400,
+      "track": "Good 4",
+      "model": "v3.6",
+      "prediction": "6 / 3 / 13 / 1, 8",
+      "result": "6–3–13–8",
+      "outcome": "Exact First Four — WIN",
+      "verifiedTicket": {"stake": 5.0, "return": 13336.65, "roi_pct": 266633.0},
+      "notes": "Baseline model validated tempo-translation logic."
+    },
+    {
+      "no": 2,
+      "race": "Kalgoorlie (WA) — R2",
+      "date": "2025-10-02",
+      "distance_m": 1100,
+      "track": "Good 4",
+      "model": "v3.6",
+      "prediction": "1 / 3 / 4 / 8",
+      "result": "6–7–4–8",
+      "outcome": "No payout — order mismatch",
+      "notes": "Landed 3rd & 4th; barrier-bias test."
+    },
+    {
+      "no": 3,
+      "race": "Gold Coast (QLD) — R1",
+      "date": "2025-10-04",
+      "distance_m": 2210,
+      "track": "Good",
+      "model": "v3.6",
+      "prediction": "3 / 1 / 5 / 6",
+      "result": "3–1–5–4–5–6",
+      "outcome": "No payout — order mismatch",
+      "notes": "Long-distance stamina validation."
+    },
+    {
+      "no": 4,
+      "race": "Ballarat (VIC) — R7",
+      "date": "2025-10-06",
+      "distance_m": 1000,
+      "track": "Soft 6",
+      "model": "v3.6",
+      "prediction": "1 / 5 / 6",
+      "result": "5–4–1–9–6–10–3",
+      "outcome": "No payout — order mismatch",
+      "notes": "Short-sprint test run."
+    },
+    {
+      "no": 5,
+      "race": "Gawler (SA) — R5",
+      "date": "2025-10-06",
+      "distance_m": 1100,
+      "track": "Good",
+      "model": "v3.6",
+      "prediction": "4 / 12 / (1, 8)",
+      "result": "4–2–8–5–12–7–13–1–11–9",
+      "outcome": "No payout — order mismatch",
+      "notes": "Tempo resilience trial."
+    },
+    {
+      "no": 6,
+      "race": "Toowoomba (QLD) — R7",
+      "date": "2025-10-06",
+      "distance_m": 1200,
+      "track": "Good",
+      "model": "v3.6",
+      "prediction": "WIN #9 Butt Heads",
+      "result": "Butt Heads — WIN",
+      "outcome": "Fixed win — WIN",
+      "verifiedTicket": {"stake": 10.0, "return": 143.0, "roi_pct": 1330.0}
+    },
+    {
+      "no": 7,
+      "race": "Morphettville Parks (SA) — R2",
+      "date": "2025-10-10",
+      "distance_m": 1000,
+      "track": "Good",
+      "model": "v3.6",
+      "prediction": "9 / 6 / 1",
+      "result": "3–6–9–10",
+      "outcome": "No payout — order mismatch",
+      "notes": "2 of AI’s top-4 in result."
+    },
+    {
+      "no": 8,
+      "race": "Morphettville Parks (SA) — R3",
+      "date": "2025-10-10",
+      "distance_m": 1400,
+      "track": "Good 4",
+      "model": "v3.6",
+      "prediction": "Joseph’s Glory #6 (WIN) @ 16.90",
+      "result": "Joseph’s Glory — WIN",
+      "outcome": "Fixed win — WIN",
+      "verifiedTicket": {"stake": 5.0, "return": 84.50, "roi_pct": 1590.0}
+    },
+    {
+      "no": 9,
+      "race": "Cranbourne (VIC) — R2",
+      "date": "2025-10-10",
+      "distance_m": 1300,
+      "track": "Good",
+      "model": "v4.0",
+      "prediction": "Queen of the Surf (W/P)",
+      "result": "Placed",
+      "outcome": "Each-way place — WIN",
+      "verifiedTicket": {"stake": 20.0, "return": 50.0, "roi_pct": 150.0}
+    },
+    {
+      "no": 10,
+      "race": "Canberra (ACT) — R8",
+      "date": "2025-10-10",
+      "distance_m": 1300,
+      "track": "Good",
+      "model": "v4.0",
+      "prediction": "1 / 6 / 10",
+      "result": "6–10–1–7–2",
+      "outcome": "Boxed trifecta — WIN",
+      "verifiedTicket": {"stake": 10.0, "return": 57.33, "roi_pct": 473.3}
+    },
+    {
+      "no": 11,
+      "race": "Caulfield (VIC) — R1",
+      "date": "2025-10-11",
+      "distance_m": 1700,
+      "track": "Good",
+      "model": "v4.0",
+      "prediction": "1 / 2 / 13 (box)",
+      "result": "13–1–8–11–2–7–15–3",
+      "outcome": "No payout — order mismatch",
+      "notes": "2 of top-3 landed."
+    },
+    {
+      "no": 12,
+      "race": "Caulfield (VIC) — R2",
+      "date": "2025-10-11",
+      "distance_m": 1200,
+      "track": "Good",
+      "model": "v4.0",
+      "prediction": "2 / 5 / 6 / 7 / 8",
+      "result": "5–6–2–14–15",
+      "outcome": "No payout — order mismatch",
+      "notes": "Top-3 covered by AI set."
+    },
+    {
+      "no": 13,
+      "race": "Seymour (VIC) — R1",
+      "date": "2025-10-12",
+      "distance_m": 1600,
+      "track": "Good",
+      "model": "v4.2",
+      "prediction": "5 / 1 / 10 / 7",
+      "result": "5–1–2–7–10",
+      "outcome": "No payout — order mismatch",
+      "notes": "3 of 4 inside top-5."
+    },
+    {
+      "no": 14,
+      "race": "Seymour (VIC) — R3",
+      "date": "2025-10-12",
+      "distance_m": 1600,
+      "track": "Good",
+      "model": "v4.2",
+      "prediction": "6 / 8 / 9 / 14",
+      "result": "14–9–6–8–4",
+      "outcome": "Boxed First Four — WIN",
+      "verifiedTicket": {"stake": 5.0, "return": 19.42, "roi_pct": 288.4}
+    },
+    {
+      "no": 15,
+      "race": "Cairns (QLD) — R3",
+      "date": "2025-10-12",
+      "distance_m": 1250,
+      "track": "Good",
+      "model": "v4.3",
+      "prediction": "3 / 5 / 6 / 1 / 2",
+      "result": "3–2–6–1–5",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 16,
+      "race": "Cairns (QLD) — R7",
+      "date": "2025-10-12",
+      "distance_m": 1500,
+      "track": "Good",
+      "model": "v4.3",
+      "prediction": "1 / 2 / 4 / 8",
+      "result": "4–3–8–1–2–9",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 17,
+      "race": "Kilmore (VIC) — R1",
+      "date": "2025-10-13",
+      "distance_m": 1200,
+      "track": "Good",
+      "model": "v4.4",
+      "prediction": "4 / 8 / 10 / 11",
+      "result": "4–11–2–8–3–7–10",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 18,
+      "race": "Kilmore (VIC) — R2",
+      "date": "2025-10-13",
+      "distance_m": 1450,
+      "track": "Good",
+      "model": "v4.4",
+      "prediction": "1 / 2 / 3 / 9",
+      "result": "2–9–3–7–13–1",
+      "outcome": "Boxed trifecta — WIN",
+      "verifiedTicket": {"stake": 5.0, "return": 11.02, "roi_pct": 120.4}
+    },
+    {
+      "no": 19,
+      "race": "Kilmore (VIC) — R7",
+      "date": "2025-10-13",
+      "distance_m": 1600,
+      "track": "Good",
+      "model": "v4.4",
+      "prediction": "2 / 5 / 12",
+      "result": "12–4–2–7–8–1",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 20,
+      "race": "Mountaineer Park (USA) — R8",
+      "date": "2025-10-13",
+      "distance_m": 1210,
+      "track": "Dirt",
+      "model": "v4.5",
+      "prediction": "4 / 5 / 7 / 10",
+      "result": "10–4–5–7–3–2",
+      "outcome": "Boxed trifecta — WIN",
+      "verifiedTicket": {"stake": 10.0, "return": 208.75, "roi_pct": 1987.5}
+    },
+    {
+      "no": 21,
+      "race": "Echuca (VIC) — R7",
+      "date": "2025-10-20",
+      "distance_m": 1000,
+      "track": "Good",
+      "model": "v4.5",
+      "prediction": "2 / 6 / 7 / 15",
+      "result": "6–4–2–10–8–7",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 22,
+      "race": "Mount Isa (QLD) — R5",
+      "date": "2025-10-20",
+      "distance_m": 1200,
+      "track": "Good",
+      "model": "v4.6",
+      "prediction": "1 / 2 / 3 / 5 / 9",
+      "result": "2–3–4–9–1",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 23,
+      "race": "Belmont (WA) — R4",
+      "date": "2025-10-22",
+      "distance_m": 1400,
+      "track": "Good",
+      "model": "v4.7",
+      "prediction": "13 / 12 / 16 / 17",
+      "result": "13–17–16–4–8–5",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 24,
+      "race": "Geelong (VIC) — R5",
+      "date": "2025-10-23",
+      "distance_m": 1200,
+      "track": "Soft 7",
+      "model": "v4.8",
+      "prediction": "6 / 11 / 12 / 13",
+      "result": "11–12–13–6",
+      "outcome": "Boxed First Four — WIN",
+      "verifiedTicket": {"stake": 10.0, "return": 143.67, "roi_pct": 1336.7}
+    },
+    {
+      "no": 25,
+      "race": "Mornington (VIC) — R6",
+      "date": "2025-10-23",
+      "distance_m": 1200,
+      "track": "Soft 5",
+      "model": "v4.8",
+      "prediction": "1 / 3 / 5 / 6",
+      "result": "1–3–7–4–5",
+      "outcome": "No payout — order mismatch",
+      "notes": "1st and 2nd correct."
+    },
+    {
+      "no": 26,
+      "race": "Moonee Valley (VIC) — R4",
+      "date": "2025-10-24",
+      "distance_m": 1200,
+      "track": "Good",
+      "model": "v4.9",
+      "prediction": "WIN #9 Royal Lass @ $51",
+      "result": "Royal Lass — WIN",
+      "outcome": "Fixed win — WIN",
+      "verifiedTicket": {"stake": 5.0, "return": 255.0, "roi_pct": 5000.0},
+      "notes": "Corrected: $5 stake ➝ $255 return."
+    },
+    {
+      "no": 27,
+      "race": "Moonee Valley (VIC) — R5",
+      "date": "2025-10-24",
+      "distance_m": 955,
+      "track": "Good",
+      "model": "v4.9",
+      "prediction": "1 / 2 / 10 / 11",
+      "result": "2–10–11–1",
+      "outcome": "Boxed First Four — WIN",
+      "verifiedTicket": {"stake": 5.0, "return": 120.83, "roi_pct": 2316.6}
+    },
+    {
+      "no": 28,
+      "race": "Moonee Valley (VIC) — R3",
+      "date": "2025-10-25",
+      "distance_m": 1200,
+      "track": "Good",
+      "model": "v5.0",
+      "prediction": "2 / 4 / 10 / 12",
+      "result": "2–4–3–6–9",
+      "outcome": "No payout — order mismatch"
+    },
+    {
+      "no": 29,
+      "race": "Moonee Valley (VIC) — R10 Cox Plate (G1)",
+      "date": "2025-10-25",
+      "distance_m": 2040,
+      "track": "Good 4",
+      "model": "v5.0",
+      "prediction": "2 / 4 / 6 / 7",
+      "result": "6 (Via Sistina) — 4 (Buckaroo) — 7 (Treasure the Moment) — 3 (Attrition)",
+      "outcome": "Boxed trifecta — WIN",
+      "verifiedTicket": {"stake": 10.0, "return": 32.76, "roi_pct": 227.6},
+      "notes": "Euro endurance bias confirmed."
+    },
+    {
+      "no": 30,
+      "race": "Sale (VIC) — R5",
+      "date": "2025-10-26",
+      "distance_m": 1200,
+      "track": "Soft 7",
+      "model": "v5.0",
+      "prediction": "5 / 6 / 7 / 11",
+      "result": "5–6–1–7–4",
+      "outcome": "No payout — order mismatch",
+      "notes": "Top-3 included."
+    }
+  ]
+}
