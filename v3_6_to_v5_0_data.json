@@ -1,9 +1,32 @@
 <nav style="background:#111; padding:15px; display:flex; justify-content:center; gap:30px; border-bottom:1px solid #E0B34E;">
-  <a href="index.html" style="color:#E0B34E; text-decoration:none; font-weight:600;">Home</a>
-  <a href="summary.html" style="color:#E0B34E; text-decoration:none; font-weight:600;">Summary</a>
-  <a href="insights.html" style="color:#E0B34E; text-decoration:none; font-weight:600;">Insights</a>
-  <a href="simulation.html" style="color:#E0B34E; text-decoration:none; font-weight:600;">Simulation</a>
-  <a href="v3_6_to_v5_0_report.html" style="color:#E0B34E; text-decoration:none; font-weight:600;">Report</a>
+  <style>
+    nav a {
+      color:#E0B34E;
+      text-decoration:none;
+      font-weight:600;
+      position:relative;
+      padding-bottom:5px;
+      transition:all 0.3s ease;
+    }
+    nav a::after {
+      content:"";
+      position:absolute;
+      width:0;
+      height:2px;
+      left:0;
+      bottom:0;
+      background:#E0B34E;
+      transition:width 0.3s ease;
+    }
+    nav a:hover::after {
+      width:100%;
+    }
+  </style>
+  <a href="index.html">Home</a>
+  <a href="summary.html">Summary</a>
+  <a href="insights.html">Insights</a>
+  <a href="simulation.html">Simulation</a>
+  <a href="v3_6_to_v5_0_report.html">Report</a>
 </nav>
 {
   "meta": {
