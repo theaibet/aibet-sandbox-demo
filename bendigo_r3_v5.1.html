@@ -1,1 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI-Bet v5.1 — Bendigo R3 (1600 m Soft 5)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="theme.css" />
+  <style>
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    h1{font-size:26px}
+    .badge{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:4px 8px;color:var(--muted);font-size:12px; margin-left:8px}
+    .kpi{display:grid;grid-template-columns:1fr;gap:10px;margin:16px 0 24px}
+    .card{background:var(--card);border-left:6px solid var(--line);padding:14px;border-radius:8px}
+    .tbl{width:100%;border-collapse:collapse}
+    .tbl th,.tbl td{border:1px solid var(--line);padding:10px;text-align:left}
+    .tbl th{background:#151515}
+    .green{color:#00ffae} .red{color:#ff4c4c}
+    .muted{color:var(--muted)}
+    nav a{color:var(--gold);text-decoration:none;font-weight:600;padding:6px 8px;position:relative}
+    nav a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#E0B34E;transform:scaleX(0);transition:.25s}
+    nav a:hover:after{transform:scaleX(1)}
+    .top4{font-size:18px}
+    footer{margin-top:40px;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="summary.html">Summary</a>
+    <a href="insights.html">Insights</a>
+    <a href="graph.html">Graph</a>
+    <a href="simulation.html">Simulation</a>
+  </nav>
 
+  <div class="wrap">
+    <header>
+      <h1>AI-Bet v5.1 — Bendigo R3 <span class="badge">1600 m • Soft 5</span></h1>
+    </header>
+
+    <section id="headline" class="card"></section>
+
+    <section class="card">
+      <div class="top4" id="top4">Prediction: …</div>
+      <div class="muted" id="bias"></div>
+    </section>
+
+    <section style="margin-top:16px">
+      <table class="tbl" id="oddsTable">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Horse</th>
+            <th>Barrier</th>
+            <th>Wgt</th>
+            <th>Book (WIN)</th>
+            <th>AI-Bet Fair</th>
+            <th>Edge (Book − Fair)</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <footer>© 2025 AI-Bet Pty Ltd — Predictive Racing Engine</footer>
+  </div>
+
+  <script>
+    fetch('bendigo_r3_v5_1.json')
+      .then(r => r.json())
+      .then(d => {
+        const H = d.meta.title;
+        const h = document.getElementById('headline');
+        h.innerHTML = `<div><b>${H}</b><div class="muted">${d.meta.notes[0]}</div></div>`;
+
+        // Top-4
+        document.getElementById('top4').innerHTML =
+          `<b>Predicted Top 4:</b> ${d.predicted_order.slice(0,4).join(' / ')}`;
+        document.getElementById('bias').textContent = `Bias Profile: ${d.ai_summary.bias_profile}`;
+
+        // Build table
+        const map = Object.fromEntries(d.runners.map(r => [r.no, r]));
+        const order = d.predicted_order.concat(
+          d.runners.map(r => r.no).filter(n => !d.predicted_order.includes(n))
+        );
+        const tb = document.querySelector('#oddsTable tbody');
+        order.forEach(no => {
+          const r = map[no];
+          const edge = (parseFloat(r.book_win_odds) - parseFloat(r.ai_fair_odds)).toFixed(2);
+          const edgeClass = parseFloat(edge) >= 0 ? 'green' : 'red';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${r.no}</td>
+            <td>${r.name}</td>
+            <td>${r.barrier}</td>
+            <td>${r.weight_kg}</td>
+            <td>$${r.book_win_odds.toFixed ? r.book_win_odds.toFixed(2) : r.book_win_odds}</td>
+            <td>$${r.ai_fair_odds.toFixed ? r.ai_fair_odds.toFixed(2) : r.ai_fair_odds}</td>
+            <td class="${edgeClass}">${edge}</td>
+            <td class="muted">${r.notes}</td>
+          `;
+          tb.appendChild(tr);
+        });
+      })
+      .catch(err => {
+        document.getElementById('headline').innerHTML =
+          '<span class="red">Error loading race data.</span>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
