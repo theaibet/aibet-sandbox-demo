@@ -93,42 +93,24 @@
 <script>
 fetch('v3_6_to_v5_0_data.json')
   .then(response => response.json())
-  .then(data => {
+  .then(json => {
+    const races = json.races; // ✅ this is the actual array
     const tableBody = document.querySelector('#raceTable tbody');
     tableBody.innerHTML = '';
 
-    data.forEach(race => {
+    races.forEach(race => {
       const row = document.createElement('tr');
       row.innerHTML = `
-        <td>${race.Race}</td>
-        <td>${race.Prediction}</td>
-        <td class="${race.Result.includes('Win') || race.Result.includes('Top 4') ? 'success' : 'fail'}">
-          ${race.Result}
+        <td>${race.race}</td>
+        <td>${race.prediction}</td>
+        <td class="${race.outcome.includes('WIN') || race.outcome.includes('Top 4') ? 'success' : 'fail'}">
+          ${race.outcome}
         </td>
-        <td>${race.Return}</td>
-        <td>${race.ROI}</td>
+        <td>${race.verifiedTicket ? '$' + race.verifiedTicket.return.toLocaleString() : '$0.00'}</td>
+        <td>${race.verifiedTicket ? race.verifiedTicket.roi_pct.toFixed(1) + '%' : '-'}</td>
       `;
       tableBody.appendChild(row);
     });
   })
   .catch(err => console.error('Error loading race data:', err));
 </script>
-
-  <h2>Model Notes</h2>
-  <p>
-    The AI-Bet v3.6 system uses form, barrier bias, weight variation, and track consistency to calculate confidence scores.  
-    It applies data-weighted adjustments based on recent performance and bias indicators.
-  </p>
-
-  <footer>
-    AI-Bet™ Predictive Racing Engine — Built by Zac Reid | theaibet.com
-  </footer>
-</body>
-</html>
-<div class="summary-box">
-  <b>Total Races Tested:</b> 15 <br>
-  <b>Top-4 Accuracy:</b> 80% <br>
-  <b>Exact Order Accuracy:</b> 67% <br>
-  <b>Average ROI:</b> +142% <br>
-  <b>Bias Profile:</b> Stable across states (ACT, SA, WA, VIC, QLD)
-</div>
