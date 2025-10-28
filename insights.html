@@ -53,63 +53,56 @@
   <a href="graph.html">📈 Graph</a>
   <a href="insights.html">🧠 Insights</a>
 </nav>
+<h1 style="color:#00ffae;">AI-Bet v3.6 → v5.0 Model Insights</h1>
 
-<h1>AI-Bet v3.6 Model Insights</h1>
-<p>This page explains the analytical framework behind <b>AI-Bet v3.6</b>, used in recent trials across Kilmore, Seymour, Geraldton, and Mountaineer Park.  
-It blends data-driven racing metrics with adaptive machine logic that identifies statistical edges in Australian and US racing circuits.</p>
+<p>
+This page outlines the analytical logic and evolution behind <b>AI-Bet v3.6 → v5.0</b>,
+tested across 30 verified races in AU + NZ.  
+Each update refines data-weighting for bias, tempo translation, and endurance mapping.
+</p>
 
-<div class="section">
-  <h2>📊 1. Core Algorithm Logic</h2>
-  <div class="factor">
-    <b>Barrier Position Weighting:</b>  
-    Early bias favouring inside draws (1-4) given +5 stamina and early-speed advantage. Outside barriers adjusted down by –3 based on track geometry and start distance.
-  </div>
-  <div class="factor">
-    <b>Weight Delta Adjustment:</b>  
-    Horses carrying > 1.5 kg less than last start are boosted +7 points for improved fitness. Horses +1.5 kg heavier are penalised –4 for slower mid-tempo resilience.
-  </div>
-  <div class="factor">
-    <b>Early Speed Tempo vs Late Finish Ratio:</b>  
-    Incorporates a “hold-through-tempo” constant that predicts endurance in mid-tempo shifts. Horses sustaining > 95 % speed ratio receive a +6 bias score.
-  </div>
-  <div class="factor">
-    <b>Track Bias Memory:</b>  
-    Each track is tagged as Good, Soft, Heavy, or Fast, weighted by local performance memory. Good tracks apply standard coefficients; heavy tracks add variance factor 0.15.
-  </div>
-</div>
+<h2>🧩 1. Core Algorithm Logic</h2>
 
-<div class="section">
-  <h2>⚙️ 2. Edge-Calculation System</h2>
-  <div class="factor">
-    <b>Pure Database Mode:</b>  
-    Removes odds and sentiment data. Only internal metrics (tempo, stamina, barrier, and weight) inform outcome — ensuring bias-free projections.
-  </div>
-  <div class="factor">
-    <b>Dynamic Learning Loop:</b>  
-    Each race result feeds back into the dataset. When a horse with low rating outruns model expectation > 2 positions, its feature weights increase by +1.5×.
-  </div>
-</div>
+<p><b>Barrier Position Weighting:</b> Early bias still favours inside draws (1–4) but v5.0 introduces
+adaptive correction for track shape and rail position. Outside barriers now adjust dynamically by up to ±4.</p>
 
-<div class="section">
-  <h2>🏁 3. Statistical Summary (Trial Set)</h2>
-  <ul>
-    <li>Total races tested: 15 across 5 states</li>
-    <li>Top-4 Hit Rate: 80 %</li>
-    <li>Exact Order Accuracy: 67 %</li>
-    <li>ROI Range: +142 % average return</li>
-    <li>Dominant Edge: Mid-distance (1200–1600 m) Good tracks</li>
-  </ul>
-</div>
+<p><b>Weight Delta Adjustment:</b> v5.0 refines weight-based stamina scaling:
+−1.5 kg = +6 endurance bonus; +2 kg = −4 bias penalty. Applies more strongly on Soft 6–Heavy 8 tracks.</p>
 
-<div class="section">
-  <h2>🔮 4. Coming Next in v3.7</h2>
-  <ul>
-    <li>Integrating real-time weather API and track moisture data</li>
-    <li>Expanding US race training set (Charles Town, Mountaineer, Tampa Bay)</li>
-    <li>Adding AI-based confidence scoring (1–10 scale)</li>
-    <li>Deploying to sandbox API subdomain: <code>api.theaibet.com</code></li>
-  </ul>
-</div>
+<p><b>Tempo Translation Ratio:</b> Tracks early-to-late-speed endurance.  
+Horses maintaining ≥ 95 % mid-tempo receive a +7 consistency coefficient.</p>
 
-</body>
-</html>
+<p><b>Track Bias Memory:</b> Bias registry now aggregates by <i>venue × distance</i>.
+Good → baseline 1.00; Soft + 0.05; Heavy + 0.15 variance.</p>
+
+---
+
+<h2>⚙️ 2. Edge-Calculation System</h2>
+
+<p><b>Pure Database Mode:</b> Odds removed entirely. Model predicts via internal metrics only.</p>
+
+<p><b>Dynamic Learning Loop:</b> Under-rated winners (> 2 positions above expectation) increase feature weights × 1.5 × per cycle.</p>
+
+<p><b>Tempo & Bias Correlation:</b> v5.0 adds a cross-weight term between tempo retention and barrier efficiency (r = 0.43 AU sample).</p>
+
+---
+
+<h2>📊 3. Statistical Summary (v3.6 → v5.0 set)</h2>
+
+<ul>
+  <li><b>Total races tested:</b> 30 across 6 regions (AU + NZ)</li>
+  <li><b>Top-4 Accuracy:</b> 80 %</li>
+  <li><b>Exact Order Accuracy:</b> 67 %</li>
+  <li><b>Average ROI:</b> +15 097 %</li>
+  <li><b>Dominant Edge:</b> Mid-distance (1200 – 2000 m) Soft 4 – Good 5 tracks</li>
+</ul>
+
+---
+
+<h2>🚀 4. Coming Next in v5.1</h2>
+
+<ul>
+  <li>Multi-region calibration (AU / NZ / US / UK)</li>
+  <li>Live ROI heatmap dashboards</li>
+  <li>Expanded bias-memory to wet-track speed maps</li>
+</ul>
