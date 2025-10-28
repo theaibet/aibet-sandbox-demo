@@ -7,152 +7,82 @@
       "Scoring uses: barrier bias, soft-track modifier, 1600 m fitness, weight impact (>60kg), Euro/NZ stamina bonus.",
       "Bookmaker odds are shown only for comparison; no odds were used in the model scoring."
     ]
-  },
+{
   "race": {
-    "meeting": "Bendigo",
-    "race_no": "R3",
-    "class": "Bm70 Handicap",
+    "location": "Bendigo",
+    "race_number": 3,
     "distance_m": 1600,
-    "track": "Soft 5",
-    "runners": 10,
-    "scratched": [2]
+    "track_condition": "Good 4",
+    "race_name": "Bendigo Locksmiths Handicap (Bm70)"
   },
-  "predicted_order": ["3", "6", "5", "4", "1", "10", "7", "9", "11", "8"],
-  "ai_summary": {
-    "headline": "Prediction → 3 / 6 / 5 / 4",
-    "confidence": "Moderate (soft-track stable, weight spread high)",
-    "bias_profile": "Inside barriers 1–4 advantaged; NZ/Euro bloodlines positive on Soft; >60kg slight negative."
-  },
-  "runners": [
-    {
-      "no": "1",
-      "name": "Hiyaam Proud",
-      "barrier": 9,
-      "weight_kg": 62.5,
-      "euro_bias": true,
-      "ai_score": 62,
-      "ai_prob": 0.10,
-      "ai_fair_odds": 10.0,
-      "book_win_odds": 4.20,
-      "edge": "-5.80",
-      "notes": "High weight -; NZ stamina +; wide gate -"
+  "model_version": "5.1",
+  "factors": {
+    "barrier_bias": "mild inside (1–4) advantage",
+    "track_bias": "balanced mid/rail ok",
+    "weight_penalty_threshold": 61,
+    "tempo_modifiers": {
+      "euro_bonus": {
+        "<1200": -0.10,
+        "1200-1400": 0.10,
+        "1600": 0.30,
+        "2000+": 0.60
+      }
     },
-    {
-      "no": "3",
-      "name": "Opening Address",
-      "barrier": 6,
-      "weight_kg": 62.0,
-      "euro_bias": true,
-      "ai_score": 85,
-      "ai_prob": 0.28,
-      "ai_fair_odds": 3.57,
-      "book_win_odds": 3.90,
-      "edge": "+0.33",
-      "notes": "2nd-up fitness +; consistent; neutral gate"
-    },
-    {
-      "no": "4",
-      "name": "Politely Dun",
-      "barrier": 2,
-      "weight_kg": 61.5,
-      "euro_bias": true,
-      "ai_score": 72,
-      "ai_prob": 0.12,
-      "ai_fair_odds": 8.33,
-      "book_win_odds": 15.00,
-      "edge": "+6.67",
-      "notes": "Barrier 2 +; first-up fitness –; NZ stamina +"
-    },
-    {
-      "no": "5",
-      "name": "Cavity Bay",
-      "barrier": 1,
-      "weight_kg": 60.5,
-      "euro_bias": true,
-      "ai_score": 76,
-      "ai_prob": 0.15,
-      "ai_fair_odds": 6.67,
-      "book_win_odds": 12.00,
-      "edge": "+5.33",
-      "notes": "Barrier 1 strong +; profile OK on Soft"
-    },
-    {
-      "no": "6",
-      "name": "Shiny New Deel",
-      "barrier": 5,
-      "weight_kg": 60.5,
-      "euro_bias": true,
-      "ai_score": 78,
-      "ai_prob": 0.23,
-      "ai_fair_odds": 4.35,
-      "book_win_odds": 4.50,
-      "edge": "+0.15",
-      "notes": "Recent win +; Soft record +; fitness solid"
-    },
-    {
-      "no": "7",
-      "name": "Everything Counts",
-      "barrier": 8,
-      "weight_kg": 60.0,
-      "euro_bias": false,
-      "ai_score": 58,
-      "ai_prob": 0.03,
-      "ai_fair_odds": 33.33,
-      "book_win_odds": 10.00,
-      "edge": "-23.33",
-      "notes": "Fit but neutral biases; map OK"
-    },
-    {
-      "no": "8",
-      "name": "Crown Crusher",
-      "barrier": 3,
-      "weight_kg": 59.5,
-      "euro_bias": false,
-      "ai_score": 50,
-      "ai_prob": 0.005,
-      "ai_fair_odds": 200.0,
-      "book_win_odds": 41.00,
-      "edge": "-159.00",
-      "notes": "Barrier +; recent form poor –"
-    },
-    {
-      "no": "9",
-      "name": "Masterful",
-      "barrier": 10,
-      "weight_kg": 59.5,
-      "euro_bias": false,
-      "ai_score": 55,
-      "ai_prob": 0.02,
-      "ai_fair_odds": 50.0,
-      "book_win_odds": 10.00,
-      "edge": "-40.00",
-      "notes": "Wide gate –; honest type"
-    },
-    {
-      "no": "10",
-      "name": "Entrusting",
-      "barrier": 7,
-      "weight_kg": 58.5,
-      "euro_bias": false,
-      "ai_score": 60,
-      "ai_prob": 0.06,
-      "ai_fair_odds": 16.67,
-      "book_win_odds": 7.50,
-      "edge": "-9.17",
-      "notes": "Third-up +; neutral map"
-    },
-    {
-      "no": "11",
-      "name": "Autumn Storm",
-      "barrier": 4,
-      "weight_kg": 57.0,
-      "euro_bias": false,
-      "ai_score": 52,
-      "ai_prob": 0.01,
-      "ai_fair_odds": 100.0,
-      "book_win_odds": 23.00,
-      "edge": "-77.00",
-      "notes": "Barrier +; recent form –"
+    "condition_adjustments": {
+      "good": "default baseline",
+      "soft": -0.20,
+      "heavy": -0.40
     }
-  ]
+  },
+  "predictions": [
+    {
+      "runner": "3. Opening Address",
+      "jockey": "Thomas Stockdale",
+      "trainer": "Liam Howley",
+      "score": 0.27,
+      "fair_odds": 3.7,
+      "notes": "Strong 2nd-up fitness, proven 1600m, Euro (So You Think NZ) +0.30, minor weight penalty 62kg."
+    },
+    {
+      "runner": "6. Shiny New Deel",
+      "jockey": "Celine Gaudray",
+      "trainer": "Gavin Bedggood",
+      "score": 0.22,
+      "fair_odds": 4.5,
+      "notes": "Recent form 1st–3rd, solid Good record, Euro (Dundeel NZ) +0.30, strong momentum off 35-day let-up."
+    },
+    {
+      "runner": "7. Everything Counts",
+      "jockey": "Harry Coffey",
+      "trainer": "Mick Price & Michael Kent",
+      "score": 0.14,
+      "fair_odds": 7.0,
+      "notes": "Distance specialist 1600m (9:2-0-2), solid fitness, mild Euro dam GB +0.10, small overlay opportunity."
+    },
+    {
+      "runner": "8. Crown Crusher",
+      "jockey": "Jamie Mott",
+      "trainer": "Stephen Brown",
+      "score": 0.10,
+      "fair_odds": 10.0,
+      "notes": "Barrier 3 ideal, distance record 13:4-1-1, strong Good track stats (22:5-0-2), volatile form cycle."
+    }
+  ],
+  "next_best": [
+    {
+      "runner": "5. Cavity Bay",
+      "fair_odds": 11.0,
+      "notes": "Barrier 1 + Euro sire Cable Bay (IRE) +0.20, second-up improvement expected."
+    },
+    {
+      "runner": "10. Entrusting",
+      "fair_odds": 12.5,
+      "notes": "Third-up and fitter, consistent at Bendigo, potential place value."
+    }
+  ],
+  "metadata": {
+    "generated_at": "2025-10-29T10:30:00+11:00",
+    "created_by": "AI-Bet v5.1 Engine",
+    "comparison_model": "v5.0 baseline"
+  }
 }
