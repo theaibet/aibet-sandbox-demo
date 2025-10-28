@@ -1,68 +1,64 @@
-<!DOCTYPE html>
+<nav style="background:#111; padding:15px; display:flex; justify-content:center; gap:30px;">
+  <a href="index.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Home</a>
+  <a href="summary.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Summary</a>
+  <a href="graph.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Graph</a>
+  <a href="insights.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Insights</a>
+  <a href="simulation.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Simulation</a>
+</nav>
+!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="theme.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI-Bet Graph</title>
-  <link rel="stylesheet" href="theme.css">   <!-- ✅ this line -->
+  <title>AI-Bet v5.0 ROI Graph</title>
+  <link rel="stylesheet" href="theme.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="summary.html">Summary</a>
-    <a href="insights.html">Insights</a>
-    <a href="graph.html" class="active">Graph</a>
-    <a href="simulation.html">Simulation</a>
-    <a href="v3_6_to_v5_0_report.html">Report</a>
+  <nav style="background:#111; padding:15px; display:flex; justify-content:center; gap:30px;">
+    <a href="index.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Home</a>
+    <a href="summary.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Summary</a>
+    <a href="graph.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Graph</a>
+    <a href="insights.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Insights</a>
+    <a href="simulation.html" style="color:#00ffae; text-decoration:none; font-weight:600;">Simulation</a>
   </nav>
 
-  <main style="padding: 40px; text-align: center;">
-    <h1 style="color: var(--gold);">AI-Bet v5.0 • ROI Tracker</h1>
-    <canvas id="roiChart" width="400" height="200"></canvas>
+  <main style="padding:30px; text-align:center;">
+    <h1 style="color:#00ffae;">ROI Performance Graph — v3.6 → v5.0</h1>
+    <canvas id="roiChart" style="max-width:900px; margin:auto; background:#111; border-radius:8px;"></canvas>
   </main>
 
-  <footer>
-    © 2025 AI-Bet Pty Ltd — Data Analytics Sandbox
-  </footer>
-
   <script>
-    const ctx = document.getElementById('roiChart').getContext('2d');
-    const roiData = {
-      labels: ["Geraldton", "Seymour", "Mountaineer", "Morphettville", "Canberra", "Kilmore R1", "Kilmore R5", "Kilmore R6", "Kilmore R7", "Mt Isa", "Caulfield R2"],
-      datasets: [{
-        label: "ROI (%)",
-        data: [0, 250, 1950, 1400, 350, -50, 0, 20, 70, 650, 510],
-        borderColor: "#E0B34E",
-        backgroundColor: "rgba(224, 179, 78, 0.1)",
-        pointBackgroundColor: "#E0B34E",
-        pointBorderColor: "#111",
-        pointRadius: 6,
-        tension: 0.35,
-        borderWidth: 3,
-      }]
-    };
+    fetch('v3_6_to_v5_0_data.json')
+      .then(response => response.json())
+      .then(json => {
+        const races = json.races;
+        const labels = races.map(r => r.race);
+        const roiData = races.map(r => r.verifiedTicket ? r.verifiedTicket.roi_pct : 0);
 
-    new Chart(ctx, {
-      type: 'line',
-      data: roiData,
-      options: {
-        plugins: {
-          legend: { labels: { color: '#E0B34E' } },
-          title: {
-            display: true,
-            text: 'Cumulative ROI (%)',
-            color: '#E0B34E',
-            font: { size: 16, weight: '600' }
+        new Chart(document.getElementById('roiChart'), {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'ROI % per Race',
+              data: roiData,
+              borderColor: '#00ffae',
+              borderWidth: 2,
+              pointRadius: 3,
+              fill: false
+            }]
+          },
+          options: {
+            scales: {
+              x: { ticks: { color: '#ccc' } },
+              y: { ticks: { color: '#ccc' }, beginAtZero: true }
+            },
+            plugins: { legend: { labels: { color: '#00ffae' } } }
           }
-        },
-        scales: {
-          x: { ticks: { color: '#E0B34E' }, grid: { color: '#242424' } },
-          y: { ticks: { color: '#E0B34E' }, grid: { color: '#242424' } }
-        }
-      }
-    });
+        });
+      })
+      .catch(err => console.error('Error loading graph data:', err));
   </script>
 </body>
 </html>
